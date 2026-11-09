@@ -1,0 +1,17 @@
+{
+  "name": "apkrunner",
+  "owner": {
+    "name": "ApkRunner",
+    "email": "hello@apkrunner.com"
+  },
+  "metadata": {
+    "description": "ApkRunner's plugins for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "apkrunner",
+      "source": "./",
+      "description": "A real Android device in the cloud for Claude: install your APK, tap through it, read the screen and logcat."
+    }
+  ]
+}
