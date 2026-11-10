@@ -57,11 +57,22 @@ or when Claude calls `stop_device`. One device per account at a time.
 
 ## Data
 
-The plugin connects Claude Code to one remote MCP server, `https://api.apkrunner.com/mcp`, with
-your API key. What Claude sends there (taps, text it types, URLs, APKs you install) goes to a
-fresh device that is wiped when the session ends; screenshots, the view list and logs come back
-into your Claude session. The plugin runs no code on your machine; the only command it suggests
-is the `curl` upload of your APK. See the [privacy policy](https://apkrunner.com/privacy).
+- **Where it connects.** The plugin adds one remote MCP server, `https://api.apkrunner.com/mcp`,
+  and sends it your API key. It runs no code on your machine.
+- **Your APK.** `install_apk` with a path gives Claude a `curl` command that uploads the file
+  straight to the server running your device (a host under `w.apkrunner.com`, in Europe or the US),
+  which installs it and deletes the file. With a URL, ApkRunner's server downloads the file and
+  keeps it for up to an hour to install it.
+- **What goes to the device.** Taps, swipes, keys, the text Claude types and the links it opens go
+  to your cloud device: a fresh Android, wiped with everything on it when the session ends.
+- **What comes back.** Screenshots, the text and positions of the views on screen, the app list,
+  logcat lines and crash reports come back into your Claude session, and so to the model provider
+  your Claude Code uses.
+- **What ApkRunner keeps.** Your account, a hash of each API key (never the key), each session's
+  record (times, Android version, apps used, crashes), and which tools were called, whether they
+  worked and how long they took. Not the screenshots, the views, the logs or the text Claude types.
+
+See the [privacy policy](https://apkrunner.com/privacy) ("AI Agents: API Keys and the MCP Server").
 
 ## License
 

@@ -2,7 +2,7 @@
   "name": "apkrunner",
   "displayName": "ApkRunner: cloud Android for agents",
   "description": "A real Android device in the cloud for Claude: install the APK you just built, tap through it, read the screen and logcat. Works where an emulator can't start, like Claude Code on the web.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "ApkRunner",
     "email": "hello@apkrunner.com",
