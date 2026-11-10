@@ -13,6 +13,9 @@ the device at the end.
 What to test: $ARGUMENTS (if empty, test the app's main flow: launch, the first screens, sign-in or
 onboarding if there is one, and the primary action).
 
+If the apkrunner tools are missing or say that sign-in is needed, ask the user to run `/mcp`, pick
+the apkrunner server and choose Authenticate: it opens apkrunner.com to sign in, once.
+
 ## 1. Get the APK
 
 - In an Android project, build a debug APK: `./gradlew assembleDebug` (or the module's

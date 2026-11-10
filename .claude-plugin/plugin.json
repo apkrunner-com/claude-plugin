@@ -2,7 +2,7 @@
   "name": "apkrunner",
   "displayName": "ApkRunner: cloud Android for agents",
   "description": "A real Android device in the cloud for Claude: install the APK you just built, tap through it, read the screen and logcat. Works where an emulator can't start, like Claude Code on the web.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "author": {
     "name": "ApkRunner",
     "email": "hello@apkrunner.com",
@@ -21,14 +21,5 @@
     "qa",
     "mcp"
   ],
-  "userConfig": {
-    "api_key": {
-      "type": "string",
-      "title": "ApkRunner API key",
-      "description": "Make one at https://apkrunner.com/account (sign in, Create a key). It starts with ark_.",
-      "required": true,
-      "sensitive": true
-    }
-  },
   "icon": "./.claude-plugin/icon.png"
 }

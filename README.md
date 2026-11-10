@@ -10,9 +10,7 @@ servers, phone, foldable and tablet screens, with microG in place of Google Play
 
 ## Setup
 
-1. Sign in at [apkrunner.com/account](https://apkrunner.com/account) and select **Create a key**
-   under API keys. The key starts with `ark_`.
-2. Install the plugin:
+1. Install the plugin:
 
    ```
    claude plugin marketplace add apkrunner-com/claude-plugin
@@ -22,8 +20,18 @@ servers, phone, foldable and tablet screens, with microG in place of Google Play
    or, inside a session, `/plugin marketplace add apkrunner-com/claude-plugin` and then
    `/plugin install apkrunner@apkrunner`. Without git, add the same marketplace from
    `https://apkrunner.com/claude/marketplace.json` instead.
-3. Claude Code asks for the API key when the plugin is enabled. To change it later, run
-   `/plugin configure apkrunner`.
+2. Sign in once: run `/mcp`, pick `plugin:apkrunner:apkrunner` and choose **Authenticate**. Your
+   browser opens apkrunner.com, where you sign in with Google or by email (new accounts start with
+   free minutes) and allow Claude Code. You can disconnect it at any time on
+   [apkrunner.com/account](https://apkrunner.com/account).
+
+Where the agent can't open a browser (CI, a cloud sandbox), add the server with an API key from
+[apkrunner.com/account](https://apkrunner.com/account) instead of the plugin's sign-in:
+
+```
+claude mcp add --transport http apkrunner https://api.apkrunner.com/mcp \
+  --header "Authorization: Bearer ark_…"
+```
 
 ## Use
 
@@ -58,7 +66,8 @@ or when Claude calls `stop_device`. One device per account at a time.
 ## Data
 
 - **Where it connects.** The plugin adds one remote MCP server, `https://api.apkrunner.com/mcp`,
-  and sends it your API key. It runs no code on your machine.
+  which you sign in to through apkrunner.com (OAuth); Claude Code keeps the token. It runs no code
+  on your machine.
 - **Your APK.** `install_apk` with a path gives Claude a `curl` command that uploads the file
   straight to the server running your device (a host under `w.apkrunner.com`, in Europe or the US),
   which installs it and deletes the file. With a URL, ApkRunner's server downloads the file and
@@ -68,7 +77,8 @@ or when Claude calls `stop_device`. One device per account at a time.
 - **What comes back.** Screenshots, the text and positions of the views on screen, the app list,
   logcat lines and crash reports come back into your Claude session, and so to the model provider
   your Claude Code uses.
-- **What ApkRunner keeps.** Your account, a hash of each API key (never the key), each session's
+- **What ApkRunner keeps.** Your account, hashes of the sign-in tokens and API keys (never the
+  tokens or keys), each session's
   record (times, Android version, apps used, crashes), and which tools were called, whether they
   worked and how long they took. Not the screenshots, the views, the logs or the text Claude types.
 
