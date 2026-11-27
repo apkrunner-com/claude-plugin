@@ -3,17 +3,7 @@
   "mcpServers": {
     "apkrunner": {
       "type": "streamable-http",
-      "url": "https://api.apkrunner.com/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "oauth",
-            "client": {
-              "mode": "cimd"
-            }
-          }
-        }
-      }
+      "url": "https://api.apkrunner.com/mcp"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "apkrunner",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A real Android device in the cloud: install an APK, tap through it, read the screen, logcat and crashes.",
   "author": {
     "name": "ApkRunner",
