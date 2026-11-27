@@ -1,6 +1,6 @@
-# ApkRunner plugin for Claude Code
+# ApkRunner plugin for Claude Code, Codex and ChatGPT
 
-Give Claude a real Android device in the cloud. Claude builds your app, installs the APK, taps
+Give your agent a real Android device in the cloud. It builds your app, installs the APK, taps
 through it like a tester, reads the screen as a list of views, and reads crashes and logcat when
 something breaks. Nothing runs on your machine: no emulator, no Android SDK image, no KVM. That is
 why it also works in Claude Code on the web and other cloud sandboxes where an emulator can't start.
@@ -33,13 +33,28 @@ claude mcp add --transport http apkrunner https://api.apkrunner.com/mcp \
   --header "Authorization: Bearer ark_…"
 ```
 
+### Codex
+
+```
+codex plugin marketplace add apkrunner-com/claude-plugin
+```
+
+then install ApkRunner from the plugins list and sign in when it asks. The same repository holds the
+plugin in the portable Agent Plugins format (`plugin.json`, `mcp.json`) next to Claude Code's
+(`.claude-plugin/`, `.mcp.json`).
+
+### ChatGPT
+
+Add `https://api.apkrunner.com/mcp` as a connector (developer mode) and sign in when it asks.
+ChatGPT has no shell, so it installs APKs from a public URL rather than from your computer.
+
 ## Use
 
 Ask in plain words, for example:
 
 - "Build the debug APK, install it on Android 15 and check that sign-up works."
 - "Reproduce the crash from issue #42 on Android 12 and find its cause."
-- `/apkrunner:test-android-app login and checkout on Android 12 and 15`
+- `/apkrunner:test-android-app sign-up and login on Android 12 and 15`
 
 ## Tools
 
